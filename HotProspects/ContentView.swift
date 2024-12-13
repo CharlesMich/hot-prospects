@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let users = ["dfsdk", "sdfsdf", "sdfksjdf", "ksdfsd"]
+    @State private var selection: String?
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        List(users, id: \.self, selection: $selection) { user in
+            Text(user)
         }
-        .padding()
+        if let selection {
+            Text("you selected \(selection)")
+        }
     }
 }
 
