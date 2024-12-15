@@ -8,8 +8,27 @@
 import SwiftUI
 
 struct ContentView3: View {
+    @State private var backgroundColor = Color.red
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Hello World")
+                .padding()
+                .background(backgroundColor)
+            
+            Text("Change COlor")
+                .padding()
+                .contextMenu {
+                    Button("Red", systemImage: "checkmark.circil.fill"){
+                        backgroundColor = Color.red
+                    }
+                    Button("Green"){
+                        backgroundColor = Color.green
+                    }
+                    Button("Blue"){
+                        backgroundColor = Color.blue
+                    }
+                }
+        }
     }
 }
 
